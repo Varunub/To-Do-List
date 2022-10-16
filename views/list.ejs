@@ -1,0 +1,20 @@
+<%-include("header");-%>
+<div class="box" id="heading">
+    <h1><%=currentday%></h1>
+</div>
+<div class="box">
+        <%newItem.forEach(elements=>{%>
+            <form action="/delete" method="post">
+                <div class="item">
+                    <input type="checkbox" id="cb" onChange="this.form.submit()" name="item" value="<%=elements._id%>" data-val="varun">
+                    <p><%=elements.name%></p>
+                    <input type="hidden" name="title" value="<%=currentday%>">
+                </div>
+            </form>
+       <%})%>
+        <form class="item" action="/" method="post">
+            <input type="text" name="todo1" placeholder="New Item" autocomplete="off">
+            <button type="submit" name="button" value="<%=currentday%>" >+</button>
+        </form>
+</div>
+<%-include("footer");-%>
